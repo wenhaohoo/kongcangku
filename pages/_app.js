@@ -2,12 +2,11 @@ import 'nextra-theme-blog/style.css'
 import Head from 'next/head'
 import { Layout } from 'antd';
 
-const { Header,Footer,Slider,Content } = Layout;
+const { Header,Footer,Content } = Layout;
 
 import '../styles/main.css'
 
 export default function App({ Component, pageProps }) {
-  console.log(pageProps);
   const YEAR = new Date().getFullYear();
   return (
    <div className="page">
@@ -25,15 +24,9 @@ export default function App({ Component, pageProps }) {
         <footer>
           <small>
             <time>{YEAR}</time> © 胡萝卜.
-            <a href="/feed.xml">RSS</a>
+            <a href="/feed.xml" style={{float:'right'}}>RSS</a>
           </small>
-          <style jsx>{`
-            footer {
-            }
-            a {
-              float: right;
-            }
-          `}</style>
+          
           </footer>
         </Footer>
    </div>

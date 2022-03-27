@@ -1,4 +1,4 @@
 export default {
- readMore:'查看详情->',
- footer:false,
-}
+    readMore:'查看详情->',
+    footer:false,
+   }
