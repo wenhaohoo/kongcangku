@@ -2,15 +2,15 @@
 title: git使用心得
 date: 2022-03-28
 description: git用法
-tag: web
+tag: web, github
 author: holobo
 ---
 
 # github
   代码修改成功后，需要push到github的操作如下：
-## 一、 cd Develop/holobo 进入目标文件夹   
+## 一、 cd Develop/holobo 进入目标文件夹
 ## 二、显示并进行分支操作
-  _git branch_  
+  _git branch_
 ```
 git branch                       # 显示本地分支
 git branch --contains 50089      # 显示包含提交50089的分支
