@@ -11,13 +11,22 @@ export default function App({ Component, pageProps }) {
   return (
    <div className="page">
      <Header className="header">
-       <img src="/images/logo.jpg"
-          alt="logo"
-          width="auto"
-          className="logo" />
-        <h1 style={{display: 'inline-block'}}>胡萝卜的博客</h1>
+           <img src="/images/logo.jpg"
+            alt="logo"
+            width="auto"
+            className="logo" />
+            <h1 style={{display: 'inline-block'}}>胡萝卜的博客
+            </h1>
       </Header>
-      <Content style={{ flex: 1 }}>
+      <div className="wrap">
+         <div className="search">
+            <input type="text" className="searchTerm" placeholder="你想找什么?" 
+                   onKeyDown={(v) =>this.searchFunc(v)}/>
+            <button type="submit" className="searchButton">Go
+            </button>
+        </div>
+      </div>
+      <Content style={{ flex: 1 }}>  
         <Component {...pageProps} />
       </Content>
       <Footer className="footer">
@@ -26,8 +35,7 @@ export default function App({ Component, pageProps }) {
             <time>{YEAR}</time> © 胡萝卜.
             <a href="/feed.xml" style={{float:'right'}}>RSS</a>
           </small>
-          
-          </footer>
+        </footer>
         </Footer>
    </div>
   )
