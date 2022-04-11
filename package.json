@@ -7,10 +7,12 @@
   },
   "dependencies": {
     "antd": "^4.19.3",
+    "axios": "^0.26.1",
     "gray-matter": "^4.0.2",
     "next": "latest",
     "nextra": "^2.0.0-beta.5",
     "nextra-theme-blog": "^0.1.5",
+    "querystring": "^0.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rss": "^1.2.2"

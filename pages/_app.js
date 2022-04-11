@@ -1,24 +1,33 @@
+import { useState } from 'react';
 import 'nextra-theme-blog/style.css'
 import Head from 'next/head'
-import { Layout } from 'antd';
+import { Layout, Input } from 'antd';
+import 'antd/dist/antd.css';
+import { SearchPosts } from '../utils/httpClient';
+
+const { Search } = Input;
 
 const { Header,Footer,Content } = Layout;
 
 import '../styles/main.css';
 
 export function SearchInput() {
+  // 添加一个react状态，loading，用来表示搜索正在进行
+  const [loading, setLoading] = useState(false);
+  // 添加一个react状态，posts，用来表示搜到的posts, 默认空
+  const [posts, setPosts] = useState([]);
+
+  const handleSearch = async (value) => {
+    const posts = await SearchPosts(value);
+    setPosts(posts.data);
+  };
+
   return (
-    <div className="wrap">
-      <div className="search">
-        <input type="text" className="searchTerm" placeholder="你想找什么?" />
-        <button
-          onClick={() => alert('aaa')}
-          type="submit"
-          className="searchButton"
-        >
-          Go
-        </button>
-      </div>
+    <div>
+      <Search placeholder="你想找什么?" onSearch={handleSearch} style={{ width: 200 }} />
+      {posts.map(p => {
+        return <div><a href={p.url}>{p.title}</a></div>;
+      })}
     </div>
   );
 }

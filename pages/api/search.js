@@ -11,7 +11,7 @@ export default function handler(req, res) {
     const postList = json.posts;
     const filteredPost = postList.filter(post => {
       const lq = q.toLowerCase();
-      const { title, description, content } = post;
+      const { title, description = '', content = '' } = post;
       return title.toLowerCase().includes(lq) || description.toLowerCase().includes(lq) || content.toLowerCase().includes(lq);
     });
     filteredPost.forEach(p => delete p.content);
